@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+{% if burger is not empty %}
+    <h1>Nom : {{burger.nom}}</h1>
+    <p>Prix : {{burger.prix}}</p>
+
+    <h3>Pain : {{burger.pain.nom}}</h3>
+
+    <ul>
+    {% for oignon in burger.oignon %}
+        <li><p>{{ oignon.nom }}</p></li>
+    {% endfor %}
+    </ul>
+
+    <ul>
+    {% for sauce in burger.sauce %}
+        <li><p>{{ sauce.nom }}</p></li>
+    {% endfor %}
+    </ul>
+
+    Image : {{burger.image}}
+
+{% else %}
+    Le burger avec cette ID n'existe pas !
+{% endif %}
+{% endblock %}
+
